@@ -1,0 +1,38 @@
+
+<h6 class="d-flex justify-content-center">Productos</h6>
+<div style="overflow:auto;">
+    <div class="mat-elevation-z8">
+        <mat-table [dataSource]="lista">
+            <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+            <mat-row *matRowDef="let row; columns:columnas;"></mat-row>
+            <ng-container matColumnDef="Opciones">
+                <mat-header-cell *matHeaderCellDef>Opciones</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button mat-icon-button (click)="editarproducto(row)">
+                        <mat-icon>launch</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="borrarproducto(row.id)">
+                        <mat-icon>delete_outline</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="ID_producto">
+                <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.id}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="codigo_producto">
+                <mat-header-cell *matHeaderCellDef>Codigo</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.codigo}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="descripcion_producto">
+                <mat-header-cell *matHeaderCellDef>Descripcion</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.descripcion}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="precio_unitario">
+                <mat-header-cell *matHeaderCellDef>Precio unitario</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.preciounitario}}</mat-header-cell>
+            </ng-container>
+        </mat-table>
+    </div>
+</div>
+<button class="mt-2" mat-raised-button (click)="agregarproducto()" color="warn">Agregar Producto</button>

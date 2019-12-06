@@ -1,0 +1,39 @@
+
+<h2 class="d-flex justify-content-center" >Clientes</h2>
+
+<div style="overflow:auto;">
+    <div class="mat-elevation-z8">
+        <mat-table [dataSource]="lista">
+            <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+            <mat-row *matRowDef="let row; columns:columnas;"></mat-row>
+            <ng-container matColumnDef="Opciones">
+                <mat-header-cell *matHeaderCellDef>Opciones</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button mat-icon-button (click)="editarcliente(row)">
+                        <mat-icon>launch</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="borrarcliente(row.id)">
+                        <mat-icon>delete_outline</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="ID_cliente">
+                <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.id}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="nombre_cliente">
+                <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.nombre}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="direccion_cliente">
+                <mat-header-cell *matHeaderCellDef>Direccion</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.direccion}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="cuit_cliente">
+                <mat-header-cell *matHeaderCellDef>CUIT</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.cuit}}</mat-header-cell>
+            </ng-container>
+        </mat-table>
+    </div>
+</div>
+<button class="mt-2" mat-raised-button (click)="agregarcliente()" color="warn">Agregar Cliente</button>

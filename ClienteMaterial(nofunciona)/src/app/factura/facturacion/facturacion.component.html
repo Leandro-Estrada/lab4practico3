@@ -1,0 +1,99 @@
+
+<h2 class="d-flex justify-content-center">Facturacion</h2>
+<!-- 
+<div class="m-3 input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Cliente</span>
+   
+    </div>
+<mat-form-field>
+    <mat-select required >
+        <mat-option *ngFor="let i of listaItems" [value]="i">
+            {{i}}>
+        </mat-option>
+    </mat-select>
+</mat-form-field> </div>-->
+     
+    <div style="overflow: auto; height: 450px;">
+      <form #form="ngForm"  autocomplete="off">
+        <!-- (submit)="onSubmit(form)" -->
+        
+        <!-- <div class="m-3 input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Employee Name</span>
+          </div>
+          <input required minlength="2" type="text" class="form-control">
+        </div> -->
+
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Cliente</span>
+            </div>
+            <select required class="form-control" name="Department">
+          <option *ngFor="let dl of listaItems" [value]="dl">
+            {{dl}}
+          </option>
+          </select>
+          </div>
+          
+          <div class="m-3 input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Punto de venta</span>
+            </div>
+            <select required class="form-control" name="Department">
+          <option *ngFor="let dl of listaItems" [value]="dl">
+            {{dl}}
+          </option>
+          </select>
+          </div>
+
+          <div class="m-3 input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Factura tipo</span>
+            </div>
+            <select required class="form-control" name="Department">
+          <option *ngFor="let dl of listaItems" [value]="dl">
+            {{dl}}
+          </option>
+          </select>
+          </div>
+
+<!--           
+          <div class="m-3 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">MailID</span>
+              </div>
+              <input required minlength="2" type="text"
+              class="form-control"
+              name="MailID"
+              #MailID="ngModel"
+              [(ngModel)]="service.formData.MailID">
+            </div> -->
+
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Fecha</span>
+                </div>
+                <input required [matDatepicker]="picker"
+                class="form-control" type="text"
+                name="DOJ"
+                #DOJ="ngModel"
+                [(ngModel)]="service.formData.DOJ">
+
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              </div>
+
+    
+      <button class="mt-4" mat-raised-button
+      color="primary" type="submit"
+      [disabled]="form.invalid">Generar Factura</button>
+    
+      <div>
+          <span>
+              
+          </span>
+      </div>
+    
+      </form>
+    </div>

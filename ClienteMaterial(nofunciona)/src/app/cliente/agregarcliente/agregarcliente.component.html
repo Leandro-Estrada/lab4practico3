@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between">
+    <h4>Agregar Nuevo Cliente</h4>
+    <button mat-button (click)="cerrar()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div style="overflow: auto; height: 450px; ">
+    <form #form="ngForm" (submit)="submitFormulario(form)" autocomplete="off">
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-number">ID</span>
+            </div>
+            <input required minlength="1" type="number" class="form-control" name="id" #idcliente="ngModel"
+                [(ngModel)]="servicioCliente.formulario.id">
+        </div>
+
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Nombre</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" name="nombre" #nombre="ngModel"
+                [(ngModel)]="servicioCliente.formulario.nombre">
+        </div>
+
+
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Direccion</span>
+            </div>
+            <input required minlength="2" type="text" class="form-control" name="direccion" #direccion="ngModel"
+                [(ngModel)]="servicioCliente.formulario.direccion">
+        </div>
+
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">CUIT</span>
+            </div>
+            <input required minlength="11" required maxlength="11" type="text" class="form-control" name="cuit"
+                #cuit="ngModel" [(ngModel)]="servicioCliente.formulario.cuit">
+        </div>
+
+        <button class="mt-4" mat-raised-button color="primary" type="submit" [disabled]="form.invalid"
+            (click)="cerrar()">Aceptar</button>
+
+    </form>
+</div>
